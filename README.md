@@ -1,2 +1,2 @@
-# RM Valdemar: 573382 \
+# RM Valdemar: 573382
 # RM Nicolas: 565982 
