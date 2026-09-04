@@ -1,0 +1,341 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-section {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+}
+
+
+.hero-grid {
+    width: min(1100px, 100%);
+
+    display: grid;
+
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+        "hero hero"
+        "text gallery";
+
+    gap: 24px;
+}
+
+
+.hero-image {
+    grid-area: hero;
+
+    width: 100%;
+    height: 305px;
+
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.03);
+}
+
+
+.hero-text {
+    grid-area: text;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.hero-text p {
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 1.6;
+}
+
+
+.botao-saiba-mais {
+    border: none;
+
+    background-color: #b4aaa3;
+    color: #121212;
+
+    padding: 11px 25px;
+
+    border-radius: 30px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.botao-saiba-mais:hover {
+    background-color: #d6c5bc;
+
+    transform: scale(1.05);
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.botao-saiba-mais:active {
+    transform: scale(0.97);
+}
+
+
+
+.hero-gallery {
+    grid-area: gallery;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+.hero-gallery-item {
+    width: 100%;
+    height: 150px;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+}
+
+.hero-gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+.hero-gallery-item:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+
+@media (max-width: 1024px) {
+
+    .hero-section {
+        padding: 30px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 2fr;
+        gap: 18px;
+    }
+
+    .hero-image {
+        height: 280px;
+    }
+
+    .hero-gallery {
+        gap: 18px;
+    }
+
+    .hero-gallery-item {
+        height: 140px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero-section {
+        padding: 20px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+
+        grid-template-rows: auto auto auto;
+
+        grid-template-areas:
+            "hero"
+            "text"
+            "gallery";
+
+        gap: 20px;
+    }
+
+    .hero-image {
+        height: 225px;
+    }
+
+
+    /* Texto */
+
+    .hero-text {
+        gap: 18px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .hero-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .hero-gallery-item {
+        height: 100px;
+    }
+
+    .botao-saiba-mais {
+        padding: 11px 24px;
+    }
+}
+
+/* Seção 2 */
+
+.gallery {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(160px, 1fr)
+    );
+
+    gap: 20px;
+
+    padding: 40px;
+}
+
+
+.column {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    align-content: start;
+}
+
+
+.column.offset {
+    padding-top: 60px;
+}
+
+
+.column img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 5px;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+
+.column img:hover {
+    transform: scale(1.05);
+
+    filter: brightness(1.1);
+}
+
+@media (max-width: 1024px) {
+
+    .gallery {
+        padding: 30px;
+
+        gap: 15px;
+    }
+
+    .column {
+        gap: 15px;
+    }
+
+    .column.offset {
+        padding-top: 40px;
+    }
+
+    .column img {
+        height: 190px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .gallery {
+        padding: 20px;
+
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(120px, 1fr)
+        );
+
+        gap: 10px;
+    }
+
+    .column {
+        gap: 10px;
+    }
+
+    .column.offset {
+        padding-top: 30px;
+    }
+
+    .column img {
+        height: 150px;
+    }
+
+}
